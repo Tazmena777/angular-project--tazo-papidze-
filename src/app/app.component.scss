@@ -1,0 +1,25 @@
+header{
+    height: 18vh;
+    background-color: #050404;
+    border-bottom: red 5px groove;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    app-header{
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+footer{
+    height: 7vh;
+    background-color: #E60000;
+    width: 100%;
+    border-top: 4px black groove;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

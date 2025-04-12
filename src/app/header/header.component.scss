@@ -1,0 +1,46 @@
+.imgDiv{
+    width: 50%;
+    height: 100%;
+    a{
+        width: 50%;
+        height: 100%;
+        img{
+            width: 170px;
+            height: 100%;
+    }
+}
+}
+
+nav{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    ul{
+        list-style: none;
+        height: 100%;
+        display: flex;
+        gap: 100px;
+        justify-content: center;
+        align-items: center;
+        a{
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+            font-family: sans-serif;
+        
+        li{
+            color: white;
+            font-size: 20px;
+            font-family: sans-serif;
+        }
+    }
+    .forCart{
+        padding: 7px;
+        padding-right: 25px;
+        border-radius: 20%;
+        background-color: #E60000;
+    }
+    }
+}
