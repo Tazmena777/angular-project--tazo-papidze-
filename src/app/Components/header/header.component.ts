@@ -8,5 +8,5 @@ import { RouterModule } from '@angular/router';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-  imgLogo = '../../assets/logo.png';
+  imgLogo = 'logo.png';
 }

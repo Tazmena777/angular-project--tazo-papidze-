@@ -1,10 +1,11 @@
 .imgDiv{
     width: 50%;
     height: 100%;
+    margin-left: 70px;
     a{
         width: 50%;
         height: 100%;
-        img{
+        .logo{
             width: 170px;
             height: 100%;
     }
@@ -29,11 +30,11 @@ nav{
             color: white;
             font-size: 20px;
             font-family: sans-serif;
-        
         li{
             color: white;
             font-size: 20px;
             font-family: sans-serif;
+            
         }
     }
     .forCart{
@@ -42,5 +43,10 @@ nav{
         border-radius: 20%;
         background-color: #E60000;
     }
+    }
+    i{
+        font-size: 30px;
+        color: white;
+        padding-left: 5px;
     }
 }

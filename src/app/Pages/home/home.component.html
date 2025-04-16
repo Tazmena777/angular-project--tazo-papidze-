@@ -1,0 +1,36 @@
+<section class="section1">
+    <div class="divForBackImg">
+        <span class="textForImg">Fast and efficient, online ordering you must try.</span>
+    </div>
+</section>
+
+<div class="categoriesText">
+    <h1>Categories</h1>
+</div>
+
+
+<section class="section2">
+
+    <div class="category-bar">
+        <button (click)="selectCategory(null)" [class.active]="activeCategoryId === null">All</button>
+        <button *ngFor="let cat of categories"
+                (click)="selectCategory(cat.id)"
+                [class.active]="activeCategoryId === cat.id">
+          {{ cat.name }}
+        </button>
+      </div>
+      
+      <hr />
+      
+      <div class="dishes">
+        <div *ngFor="let dish of filteredProducts" class="dish-card">
+          <img [src]="dish.image" alt="{{ dish.name }}" class="dish-img" />
+          <h3>{{ dish.name }}</h3>
+          <p><strong>Price:</strong> {{ dish.price }} ₾</p>
+          <p *ngIf="dish.nuts">🌰 Contains nuts</p>
+          <p *ngIf="dish.vegeterian">🥗 Vegetarian</p>
+          <p>🌶️ Spiciness: {{ dish.spiciness }}</p>
+        </div>
+      </div>
+
+</section>
