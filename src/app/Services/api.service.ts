@@ -11,16 +11,12 @@ export class ApiService {
 
   constructor(private http : HttpClient) { }
 
-  getAllCategories(): Observable<ICategory[]> {
-    return this.http.get<ICategory[]>(`https://restaurant.stepprojects.ge/api/Categories/GetAll`);
+  getAll(url : string){
+    return this.http.get(url)
   }
 
-  getAllProducts(): Observable<IProduct[]> {
-    return this.http.get<IProduct[]>(`https://restaurant.stepprojects.ge/api/Products/GetAll`);
+  getById(url : string, id : number){
+    return this.http.get(`${url}/${id}`)
   }
 
-  getCategoryById(id: number): Observable<ICategory> {
-    return this.http.get<ICategory>(`https://restaurant.stepprojects.ge/api/Categories/GetCategory/{id}`);
-  }
-  
 }
