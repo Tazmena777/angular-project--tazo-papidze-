@@ -13,6 +13,27 @@
 
    <div class="filterDiv">
     
+    <button (click)="showAll()" [class.active]="selectedCategoryId === null">All</button>
+    <button *ngFor="let category of categories"
+          (click)="loadProductsByCategory(category.id)"
+          [class.active]="selectedCategoryId === category.id">
+        {{ category.name }}
+  </button>
+
    </div>
+
+   <div class="product-list">
+    <div class="product-card" *ngFor="let product of products">
+      <img [src]="product.image" alt="{{ product.name }}">
+      <h3>{{ product.name }}</h3>
+      <p>Spiciness: {{ product.spiciness }}</p>
+      <p>
+        <span *ngIf="product.nuts">🌰 Nuts</span>
+        <span *ngIf="product.vegeterian">🥦 Vegetarian</span>
+      </p>
+      <p><strong>$ {{ product.price }}</strong></p>
+      <button>Add to cart</button>
+    </div>
+  </div>
 
 </section>

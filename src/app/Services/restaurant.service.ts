@@ -15,4 +15,9 @@ export class RestaurantService {
   getCategoriesById(id : number){
     return this.api.getById("https://restaurant.stepprojects.ge/api/Categories/GetCategory", id)
   }
+
+  getAllProducts(){
+    return this.api.getAll("https://restaurant.stepprojects.ge/api/Products/GetAll")
+  }
+
 }
