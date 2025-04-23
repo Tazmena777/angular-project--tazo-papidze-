@@ -20,4 +20,15 @@ export class RestaurantService {
     return this.api.getAll("https://restaurant.stepprojects.ge/api/Products/GetAll")
   }
 
+  getProductsByFilter(
+    vegeterian: boolean,
+    nuts: boolean,
+    spiciness: number,
+    categoryId: number
+  ) {
+    return this.api.getFilteredProducts(vegeterian, nuts, spiciness, categoryId);
+  }
+  
+  
+
 }

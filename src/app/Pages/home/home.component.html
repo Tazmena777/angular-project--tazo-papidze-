@@ -22,6 +22,32 @@
 
    </div>
 
+
+
+
+   <div class="filterProducts">
+
+
+    <div class="filter-panel">
+      <label>Spiciness: {{ filter.spiciness !== null ? filter.spiciness : 'Not Chosen' }}</label>
+      <input class="rangeInp" type="range" min="0" max="3" [(ngModel)]="filter.spiciness" />
+    
+      <label>
+        <input id="chek" type="checkbox" [(ngModel)]="filter.nuts" />
+        No Nuts
+      </label>
+    
+      <label>
+        <input id="chek" type="checkbox" [(ngModel)]="filter.vegeterian" />
+        Vegetarian Only
+      </label>
+    
+      <button (click)="applyFilter()">APPLY FILTER</button>
+      <button (click)="resetFilter()">RESET</button>
+    </div>
+    
+    
+
    <div class="product-list">
     <div class="product-card" *ngFor="let product of products">
       <img [src]="product.image" alt="{{ product.name }}">
@@ -35,5 +61,7 @@
       <button>Add to cart</button>
     </div>
   </div>
+
+</div>
 
 </section>

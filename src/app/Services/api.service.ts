@@ -19,4 +19,14 @@ export class ApiService {
     return this.http.get(`${url}/${id}`)
   }
 
+  getFilteredProducts(
+    vegeterian: boolean,
+    nuts: boolean,
+    spiciness: number,
+    categoryId: number
+  ) {
+    const url = `https://restaurant.stepprojects.ge/api/Products/GetFiltered`;
+    const params = `?vegeterian=${vegeterian}&nuts=${nuts}&spiciness=${spiciness}&categoryId=${categoryId}`;
+    return this.http.get(url + params);
+  }
 }

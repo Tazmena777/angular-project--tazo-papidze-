@@ -38,3 +38,127 @@
     }
 }
 
+.section2{
+    width: 100%;
+    margin-bottom: 50px;
+    .filterDiv{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        border-bottom: 5px groove #E60000;
+        button{
+            padding: 25px;
+            font-size: 20px;
+            font-family: sans-serif;
+            background-color: white;
+            border: none;
+            cursor: pointer;
+            &:hover{
+                background-color: #E60000;
+                color: white;
+            }
+        }
+    }
+    .active{
+        background-color: #E60000 !important;
+        color: white !important;
+    }
+    .filterProducts{
+        display: flex;
+        gap: 100px;
+        margin-top: 60px;
+        justify-content: center;
+        margin-left: 80px;
+        .filter-panel{
+            display: flex;
+            flex-direction: column;
+            width: 250px;
+            height: 300px;
+            border: 5px solid gray;
+            padding: 15px;
+            border-radius: 20px;
+            .rangeInp{
+                width: 200px;
+                margin-bottom: 30px;
+            }
+            input{
+                margin-bottom: 30px;
+            }
+            #chek{
+                font-size: 15px;
+                cursor: pointer;
+            }
+            button{
+                padding: 10px;
+                background-color: #E60000;
+                color: white;
+                border: none;
+                border-radius: 20px;
+                cursor: pointer;
+                margin-bottom: 20px;
+                &:hover{
+                    background-color: white;
+                    color: #E60000;
+                    border: 2px solid #E60000;
+                }
+            }
+            label{
+                font-size: 18px;
+                font-family: sans-serif;
+            }
+        }
+        .product-list{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            .product-card{
+                width: 250px;
+                height: 400px;
+                border: 2px solid gray;
+                border-radius: 20px;
+                transition: box-shadow 0.3s ease; 
+                box-shadow: none; 
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 6px;
+                &:hover{
+                    box-shadow: 6px 6px 30px rgba(0, 0, 0, 0.2)
+                }
+                img{
+                    width: 100%;
+                    height: 60%;
+                    object-fit: cover;
+                    border-radius: 20px 20px 0 0;
+                }
+                h2{
+                    font-size: 20px;
+                    font-weight: 500;
+                    text-align: center;
+                    margin-top: 10px;
+                    font-family: sans-serif;
+                }
+                p{
+                    font-size: 16px;
+                    text-align: center;
+                    font-family: sans-serif;
+                }
+                button{
+                    padding: 10px;
+                    background-color: #E60000;
+                    color: white;
+                    border: none;
+                    border-radius: 20px;
+                    cursor: pointer;
+                    margin-bottom: 20px;
+                    &:hover{
+                        background-color: white;
+                        color: #E60000;
+                        border: 2px solid #E60000;
+                    }
+                }
+            }
+        }
+    }
+}

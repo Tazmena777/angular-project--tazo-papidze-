@@ -5,19 +5,28 @@ import { ICategory } from '../../Models/category';
 import { IProduct } from '../../Models/product';
 import { CommonModule } from '@angular/common';
 import { RestaurantService } from '../../Services/restaurant.service';
+import { FormsModule } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
-  imports: [RouterModule, CommonModule],
+  imports: [RouterModule, CommonModule,FormsModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
-  constructor(private httpRestaurant: RestaurantService) { }
+  constructor(private httpRestaurant: RestaurantService , private http : HttpClient) { }
 
   categories: ICategory[] = [];
   products: IProduct[] = [];
   selectedCategoryId: number | null = null;
+
+  filter = {
+    vegeterian: false,
+    nuts: false,
+    spiciness: 0,
+    categoryId: 0
+  };
 
   ngOnInit(): void {
     this.loadCategories();
@@ -34,7 +43,7 @@ export class HomeComponent {
 
   loadProductsByCategory(id: number) {
     this.httpRestaurant.getCategoriesById(id)
-      .subscribe(category => {
+      .subscribe((category : any)=> {
         this.products = category.products;
         this.selectedCategoryId = id;
       });
@@ -46,4 +55,28 @@ export class HomeComponent {
   }
 
 
+  applyFilter() {
+    this.httpRestaurant.getProductsByFilter(
+      this.filter.vegeterian,
+      this.filter.nuts,
+      this.filter.spiciness,
+      this.filter.categoryId
+    ).subscribe((data: any) => {
+      this.products = data.data;
+    });
+  }
+  
+
+  resetFilter() {
+    this.filter = {
+      vegeterian: false,
+      nuts: false,
+      spiciness: 0,
+      categoryId: 0
+    };
+    this.applyFilter(); 
+  }
+
+
+  
 }
