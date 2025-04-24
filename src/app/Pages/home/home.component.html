@@ -58,7 +58,7 @@
         <span *ngIf="product.vegeterian">🥦 Vegetarian</span>
       </p>
       <p><strong>$ {{ product.price }}</strong></p>
-      <button>Add to cart</button>
+      <button (click)="addToCart(product)">Add to cart</button>
     </div>
   </div>
 

@@ -23,10 +23,20 @@ export class ApiService {
     vegeterian: boolean,
     nuts: boolean,
     spiciness: number,
-    categoryId: number
+    categoryId: number | null
   ) {
     const url = `https://restaurant.stepprojects.ge/api/Products/GetFiltered`;
-    const params = `?vegeterian=${vegeterian}&nuts=${nuts}&spiciness=${spiciness}&categoryId=${categoryId}`;
-    return this.http.get(url + params);
+    if(categoryId == 0){
+      const params = `?vegeterian=${vegeterian}&nuts=${nuts}&spiciness=${spiciness}`;
+      return this.http.get(url + params);
+    }
+    else{
+      const params = `?vegeterian=${vegeterian}&nuts=${nuts}&spiciness=${spiciness}&categoryId=${categoryId}`;
+      return this.http.get(url + params);
+    }
+  }  
+
+  postBasket(url : string, object : any){
+    return this.http.post(url, object)
   }
 }

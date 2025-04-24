@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
+import { userBasket } from '../Models/basket';
 
 @Injectable({
   providedIn: 'root'
@@ -29,6 +30,17 @@ export class RestaurantService {
     return this.api.getFilteredProducts(vegeterian, nuts, spiciness, categoryId);
   }
   
+  addToBasket(product: any) {
+    const basketItem = {
+      quantity: 1,
+      price: product.price,
+      productId: product.id
+    };
   
+    return this.api.postBasket(
+      'https://restaurant.stepprojects.ge/api/Baskets/AddToBasket',
+      basketItem
+    );
+  }
 
 }

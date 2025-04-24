@@ -62,11 +62,11 @@ export class HomeComponent {
       this.filter.spiciness,
       this.filter.categoryId
     ).subscribe((data: any) => {
-      this.products = data.data;
+      this.products = data;
     });
   }
-  
-
+ 
+ 
   resetFilter() {
     this.filter = {
       vegeterian: false,
@@ -74,9 +74,16 @@ export class HomeComponent {
       spiciness: 0,
       categoryId: 0
     };
-    this.applyFilter(); 
+    this.loadAllProducts();
   }
 
+
+  addToCart(product: any) {
+    this.httpRestaurant.addToBasket(product).subscribe({
+      next: () => alert("Product added to cart!"),
+      error: (err) => console.error("Failed to add product", err)
+    });
+  }
 
   
 }
