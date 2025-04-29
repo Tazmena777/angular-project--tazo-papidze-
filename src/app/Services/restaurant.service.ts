@@ -43,4 +43,17 @@ export class RestaurantService {
     );
   }
 
+
+  updateBasket(item: userBasket) {
+    return this.api.updateBasket(item);
+  }
+  
+  deleteFromBasket(id: number) {
+    return this.api.deleteFromBasket(id);
+  }
+  
+  getBasketItems() {
+    return this.api.getBasketItems();
+  }
+  
 }

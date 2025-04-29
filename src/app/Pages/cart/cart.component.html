@@ -1,2 +1,52 @@
-<p>cart works!</p>
+<section class="section1">
+    <div class="divForBackImg">
+        <span class="textForImg">My Cart</span>
+    </div>
+</section>
 
+<div class="divForHref">
+   <a routerLink="/home">Home </a>   /  <span> Cart </span>
+</div>
+
+<div class="categoriesText">
+    <h1>Cart</h1>
+</div>
+
+<section class="section2">
+
+    <table class="cart-table">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of cartItems">
+            <td>
+              <div class="product-details">
+                <button type="button" (click)="deleteProduct(item.id)">❌</button>
+                <img [src]="item.image" alt="Product image" />
+                <span class="name">{{ item.name }}</span>
+              </div>
+            </td>
+            <td>
+              <div class="quantity-input">
+                <button (click)="decrease(item)">-</button>
+                <span>{{ item.quantity }}</span>
+                <button (click)="increase(item)">+</button>
+              </div>
+            </td>
+            <td>${{ item.price }}</td>
+            <td>${{ item.price * item.quantity }}</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <div class="summary-row">
+        Total: <span class="total-amount">${{ totalPrice }}</span>
+      </div>
+      
+</section>
