@@ -17,11 +17,19 @@ export class CartComponent {
   constructor(private httpRestaurant: RestaurantService){}
 
   cartItems: any[] = [];
+  products : IProduct[] = [];
   totalPrice: number = 0;
 
   ngOnInit(): void {
     this.loadCart();
+  }
 
+  loadProducts() {
+    this.httpRestaurant.getAllProducts().subscribe({
+      next: (data: any) => {
+        this.products = data;
+      }
+    });
   }
 
   loadCart() {

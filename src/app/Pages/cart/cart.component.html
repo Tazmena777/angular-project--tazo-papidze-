@@ -24,12 +24,12 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let item of cartItems">
+          <tr *ngFor="let item of cartItems let pr of products">
             <td>
               <div class="product-details">
                 <button type="button" (click)="deleteProduct(item.id)">❌</button>
-                <img [src]="item.image" alt="Product image" />
-                <span class="name">{{ item.name }}</span>
+                <img [src]="pr.image" alt="Product image" />
+                <span class="name">{{ pr.name }}</span>
               </div>
             </td>
             <td>

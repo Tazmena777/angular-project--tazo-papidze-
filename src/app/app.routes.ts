@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './Pages/home/home.component';
 import { CartComponent } from './Pages/cart/cart.component';
+import { ErrorComponent } from './Pages/error/error.component';
 
 export const routes: Routes = [
     {path: "", redirectTo: "home", pathMatch: "full"},
@@ -16,4 +17,6 @@ export const routes: Routes = [
         loadComponent: () => import('./Pages/cart/cart.component').then(m => m.CartComponent),
         title: 'Step Food - Cart',
     },
+
+    {path: "**", component: ErrorComponent, title: 'Step Food - Error'},
 ];
