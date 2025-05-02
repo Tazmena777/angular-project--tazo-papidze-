@@ -54,14 +54,20 @@ export class CartComponent {
   }
 
   updateCart(item: any) {
-    this.httpRestaurant.updateBasket(item).subscribe(() => {
+    const objForPost = {
+      quantity : item.quantity,
+      price : item.price,
+      productId : item.product.id
+    }
+    this.httpRestaurant.updateBasket(objForPost).subscribe(() => {
       this.calculateTotal(); 
     });
   }
 
   deleteProduct(itemId: number) {
     this.httpRestaurant.deleteFromBasket(itemId).subscribe(() => {
-      this.cartItems = this.cartItems.filter(p => p.id !== itemId);
+      // this.cartItems = this.cartItems.filter(p => p.id !== itemId);
+      this.loadCart()
       this.calculateTotal();
     });
   }
