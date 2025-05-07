@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { RestaurantService } from '../../Services/restaurant.service';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { DialogService } from '../../Services/dialog.service';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +16,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
-  constructor(private httpRestaurant: RestaurantService , private http : HttpClient) { }
+  constructor(private httpRestaurant: RestaurantService , private http : HttpClient , private dialogService: DialogService) { }
 
   categories: ICategory[] = [];
   products: IProduct[] = [];
@@ -79,9 +80,8 @@ export class HomeComponent {
 
 
   addToCart(product: any) {
-    this.httpRestaurant.addToBasket(product).subscribe({
-      next: () => alert("Product added to cart!"),
-      error: (err) => console.error("Failed to add product", err)
+    this.httpRestaurant.addToBasket(product).subscribe(() => {
+      this.dialogService.show('პროდუქტი დაემატა კალათაში!');
     });
   }
 
