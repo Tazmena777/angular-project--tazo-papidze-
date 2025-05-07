@@ -177,3 +177,16 @@
     }
   }
   }
+
+  @media only screen and (max-width: 650px) {
+    .section2{
+      .cart-table{
+        .product-details{
+          flex-direction: column;
+          button{
+            padding: 3px;
+          }
+        }
+      }
+    }
+  }
